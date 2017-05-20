@@ -1,0 +1,36 @@
+<div ng-controller="pointEntryController" class="jumbotron text-center">
+    <br />
+    <md-content>
+        <md-toolbar class="md-accent">
+            <div class="md-toolbar-tools">
+                <h2>Point Entry</h2>
+            </div>
+        </md-toolbar>
+
+        <main layout="row">
+            <md-content class="md-padding" flex>
+                <md-card>
+                    <md-card-content>
+                        <form novalidate name="pointEntryForm">
+                            <md-input-container class="md-block">
+                                <label>Point ID</label>
+                                <input type="text" ng-model="point.pointId" required />
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label>Description</label>
+                                <input type="text" ng-model="point.desc" required />
+                            </md-input-container>
+
+                            <md-button class="md-raised md-primary" ng-click="add()" ng-disabled="!pointEntryForm.$valid">Add</md-button>
+                            <md-button class="md-raised md-primary" ng-click="add()" ng-disabled="!pointEntryForm.$valid">Add</md-button>
+                            <md-button class="md-raised md-primary" ng-click="add()" ng-disabled="!pointEntryForm.$valid">Add</md-button>
+                            <md-button class="md-raised md-primary" ng-click="add()" ng-disabled="!pointEntryForm.$valid">Add</md-button>
+                            <md-button class="md-raised md-primary" ng-click="add()" ng-disabled="!pointEntryForm.$valid">Add</md-button>
+                            <md-button class="md-raised md-primary" ng-click="add()" ng-disabled="!pointEntryForm.$valid">Add</md-button>
+                        </form>
+                    </md-card-content>
+                </md-card>
+            </md-content>
+        </main>
+    </md-content>
+</div>

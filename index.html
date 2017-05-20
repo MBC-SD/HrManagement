@@ -1,0 +1,55 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html ng-app="hrApp">
+
+<head>
+    <link rel="stylesheet" href="assets/libs/frameworks/angular-material.min.css" />
+    <link rel="stylesheet" href="assets/libs/frameworks/md-data-table.css" />
+</head>
+
+<body ng-controller="mainController">
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+        <md-button aria-label="Point Entry" ng-href="#masterPointEntry">
+            Point Entry
+        </md-button>
+    </md-sidenav>
+
+    <!-- HEADER AND NAVBAR -->
+    <md-content>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <md-button class="md-raised" ng-click="toggleLeft()" aria-label="Menu">
+                    Menu
+                </md-button>
+                <md-truncate>MBC-SD: HRM</md-truncate>
+
+                <span flex></span>
+                <md-button class="md-raised" aria-label="Home" ng-href="#">
+                    Home
+                </md-button>
+                <md-button class="md-raised" aria-label="About" ng-href="#about">
+                    About
+                </md-button>
+                <md-button class="md-raised" aria-label="Contact" ng-href="#contact">
+                    Contact
+                </md-button>
+            </div>
+        </md-toolbar>
+    </md-content>
+
+    <!-- MAIN CONTENT AND INJECTED VIEWS -->
+    <div id="main">
+        <!-- angular templating -->
+        <!-- this is where content will be injected -->
+        <div ng-view></div>
+    </div>
+</body>
+
+<script src="assets/libs/frameworks/angular.min.js"></script>
+<script src="assets/libs/frameworks/angular-route.min.js"></script>
+<script src="assets/libs/frameworks/angular-animate.min.js"></script>
+<script src="assets/libs/frameworks/angular-aria.min.js"></script>
+<script src="assets/libs/frameworks/angular-material.min.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="app/components/master/pointEntry/pointEntryController.js"></script>
+</html>

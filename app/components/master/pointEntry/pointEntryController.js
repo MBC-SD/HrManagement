@@ -1,5 +1,5 @@
 
-angular.module('hrApp').controller('pointEntryController', function ($scope) {
+angular.module('hrApp').controller('pointEntryController', function ($scope, $http) {
     $scope.points = [];
 
     var pointKey = 0;
@@ -23,4 +23,12 @@ angular.module('hrApp').controller('pointEntryController', function ($scope) {
     $scope.remove = function (index) {
         $scope.points.splice(index, 1);
     }
+
+    $scope.getData = function () {
+        $http.post('http://localhost:61884/HolaWs.asmx/GetAllHolas')
+            .then(function (response) {
+                $scope.holas = response.data;
+                alert($scope.holas);
+            })
+    };
 });

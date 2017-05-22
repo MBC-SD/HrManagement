@@ -14,7 +14,7 @@
                         <form novalidate name="pointEntryForm">
                             <md-input-container class="md-block">
                                 <label>Point ID</label>
-                                <input type="text" ng-model="point.pointId" required />
+                                <input type="text" ng-model="point.pointId" ng-blur="find(point.pointId)" required />
                             </md-input-container>
                             <md-input-container class="md-block">
                                 <label>Description</label>
@@ -22,7 +22,7 @@
                             </md-input-container>
 
                             <md-button class="md-raised md-primary" ng-click="add()" ng-disabled="!pointEntryForm.$valid">Add</md-button>
-                            <md-button class="md-raised md-primary" ng-click="add()" ng-disabled="!pointEntryForm.$valid">Add</md-button>
+                            <md-button class="md-raised md-primary" ng-click="find()">Find</md-button>
                             <md-button class="md-raised md-primary" ng-click="add()" ng-disabled="!pointEntryForm.$valid">Add</md-button>
                             <md-button class="md-raised md-primary" ng-click="add()" ng-disabled="!pointEntryForm.$valid">Add</md-button>
                             <md-button class="md-raised md-primary" ng-click="add()" ng-disabled="!pointEntryForm.$valid">Add</md-button>
@@ -34,15 +34,15 @@
                                 <thead>
                                     <tr class="text-info">
                                         <th width="10">#</th>
-                                        <th>PK</th>
-                                        <th>Name</th>
+                                        <th>ID</th>
+                                        <th>Description</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="h in holas">
+                                    <tr ng-repeat="h in points">
                                         <td>{{$index + 1}}</td>
-                                        <td>{{h.PrimaryKey}}</td>
-                                        <td>{{h.Name}}</td>
+                                        <td>{{h.pointId}}</td>
+                                        <td>{{h.desc}}</td>
                                     </tr>
                                 </tbody>
                             </table>

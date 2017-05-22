@@ -1,23 +1,37 @@
 
 angular.module('hrApp').controller('pointEntryController', function ($scope, $http) {
+    //$window.document.getElementById('inputPointId').focus();
+    $scope.focuser = true;
+
     $scope.points = [];
-
     var pointKey = 0;
-
     $scope.point = {
         key: 0,
         pointId: "",
         desc: ""
     };
 
-    $scope.add = function () {
+    $scope.clearAll = function () {
+        $scope.focuser = true;
+    };
+    $scope.save = function () {
         var l_point = angular.copy($scope.point);
         l_point.key = ++pointKey;
         $scope.points.push(l_point);
         $scope.point.pointId = "";
         $scope.point.desc = "";
+    };
+    $scope.edit = function () {
 
-        alert($scope.points.length);
+    };
+    $scope.delete = function () {
+
+    };
+    $scope.reset = function () {
+
+    };
+    $scope.list = function () {
+
     };
 
     $scope.remove = function (index) {
@@ -34,10 +48,11 @@ angular.module('hrApp').controller('pointEntryController', function ($scope, $ht
     };
 
     $scope.getData = function () {
-        // $http.post('http://localhost:61884/HolaWs.asmx/GetAllHolas')
-        //     .then(function (response) {
-        //         $scope.holas = response.data;
-        //         alert($scope.holas);
-        //     })
+        alert('b');
+        $http.post('http://192.168.100.1/JSWebservice/MyWebservice.asmx/SelectData')
+            .then(function (response) {
+                $scope.holas = response.data;
+                alert($scope.holas);
+            })
     };
 });

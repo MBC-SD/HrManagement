@@ -1,7 +1,7 @@
-<div ng-controller="pointEntryController" class="jumbotron text-center">
+<div class="jumbotron text-center">
     <br />
     <md-content>
-        <md-toolbar class="md-accent">
+        <md-toolbar class="md-primary">
             <div class="md-toolbar-tools">
                 <h2>Point Entry</h2>
             </div>
@@ -14,19 +14,43 @@
                         <form novalidate name="pointEntryForm">
                             <md-input-container class="md-block">
                                 <label>Point ID</label>
-                                <input type="text" ng-model="point.pointId" required />
+                                <input type="text" id="inputPointId" ng-model="point.pointId" style="font-variant-caps: all-petite-caps" ng-blur="find(point.pointId)"
+                                    focus="focuser" required />
                             </md-input-container>
                             <md-input-container class="md-block">
                                 <label>Description</label>
                                 <input type="text" ng-model="point.desc" required />
                             </md-input-container>
 
-                            <md-button class="md-raised md-primary" ng-click="add()" ng-disabled="!pointEntryForm.$valid">Add</md-button>
-                            <md-button class="md-raised md-primary" ng-click="add()" ng-disabled="!pointEntryForm.$valid">Add</md-button>
-                            <md-button class="md-raised md-primary" ng-click="add()" ng-disabled="!pointEntryForm.$valid">Add</md-button>
-                            <md-button class="md-raised md-primary" ng-click="add()" ng-disabled="!pointEntryForm.$valid">Add</md-button>
-                            <md-button class="md-raised md-primary" ng-click="add()" ng-disabled="!pointEntryForm.$valid">Add</md-button>
-                            <md-button class="md-raised md-primary" ng-click="add()" ng-disabled="!pointEntryForm.$valid">Add</md-button>
+                            <div layout="row" layout-align="end" layout-wrap>
+                                <md-button class="md-raised md-primary" ng-click="clearAll()">New</md-button>
+                                <md-button class="md-raised md-primary" ng-click="save()" ng-disabled="enable.btnSave">Save</md-button>
+                                <md-button class="md-raised md-primary" ng-click="edit()" ng-disabled="enable.edit">Edit</md-button>
+                                <md-button class="md-raised md-warn" ng-click="delete()" ng-disabled="enable.delete">Delete</md-button>
+                                <md-button class="md-raised md-primary" ng-click="reset()" ng-disabled="enable.reset">Reset</md-button>
+                                <md-button class="md-raised md-primary" ng-click="list()">List</md-button>
+
+                                <md-button class="md-raised md-primary" ng-click="getData()">Get Data</md-button>
+                            </div>
+
+                            <br />
+
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr class="text-info">
+                                        <th width="10">#</th>
+                                        <th>ID</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="h in points">
+                                        <td>{{$index + 1}}</td>
+                                        <td>{{h.pointId}}</td>
+                                        <td>{{h.desc}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </form>
                     </md-card-content>
                 </md-card>

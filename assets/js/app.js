@@ -6,10 +6,14 @@ var hrApp = angular.module('hrApp', ['ngMaterial', 'ngRoute']);
 // configure our routes
 hrApp.config(function ($routeProvider) {
     $routeProvider
-
         // route for the point entry
         .when('/masterPointEntry', {
-            templateUrl: 'app/components/master/pointEntry/pointEntry.html'
+            templateUrl: 'app/components/master/pointEntry/pointEntry.html',
+            controller: 'pointEntryController'
+        })
+        .when('/masterTaxEntry', {
+            templateUrl: 'app/components/master/taxEntry/taxEntry.html',
+            controller: 'taxEntryController'
         })
 });
 
@@ -78,4 +82,8 @@ hrApp.controller('aboutController', function ($scope) {
 
 hrApp.controller('contactController', function ($scope) {
     $scope.message = 'Contact us! JK. This is just a demo.';
+});
+
+hrApp.config(function ($httpProvider) {
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
 });

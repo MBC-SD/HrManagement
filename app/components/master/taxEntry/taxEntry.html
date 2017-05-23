@@ -1,0 +1,53 @@
+<br>
+<div class="md-padding">
+    <md-content>
+        <md-toolbar style="background-color:deepskyblue; height:320px;">
+            <div class="md-toolbar-tools">
+                <h1>Group Entry</h1>
+            </div>
+
+            <md-card>
+                <md-card-content>
+                    <form novalidate name="groupForm">
+                        <md-input-container class="md-block">
+                            <label>Tax ID</label>
+                            <input type="text" ng-model="tax.calculation.taxId" required />
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>Description</label>
+                            <input type="text" ng-model="tax.calculation.description" required/>
+                        </md-input-container>
+
+                        <div layout="row" layout-align="end" flex>
+                            <md-button class="md-raised md-primary" ng-click="clearValue()">New</md-button>
+                            <md-button class="md-raised md-primary" ng-disabled="!groupForm.$valid">Save</md-button>
+                            <md-button class="md-raised md-primary">Edit</md-button>
+                            <md-button class="md-raised md-warn">Delete</md-button>
+                            <md-button class="md-raised md-primary">Reset</md-button>
+                            <md-button class="md-raised md-primary">List</md-button>
+                        </div>
+                    </form>
+                    <md-table-container>
+                </md-card-content>
+            </md-card>
+        </md-toolbar>
+    </md-content>
+</div>
+<table class="md-table event-table">
+    <thead class="md-head">
+        <tr class="md-row">
+            <th class="md-column" width="150px"></th>
+            <th class="md-column">Group ID</th>
+            <th class="md-column">Description</th>
+        </tr>
+    </thead>
+    <tbody class="md-body">
+        <tr ng-repeat="g in groups">
+            <td width="150px">
+                <md-button class="md-raised md-warn" ng-click="remove($index)">X</md-button>
+            </td>
+            <td>{{g.groupid}}</td>
+            <td>{{g.description}}</td>
+        </tr>
+    </tbody>
+</table>
